@@ -1,0 +1,96 @@
+<div class="container-fluid mt-5">
+  <div class="row justify-content-center align-items-center text-center g-2">
+    <h1>Manage Students</h1>
+  </div>
+  <div class="row justify-content-center align-items-center mt-5 mb-3 g-2">
+    <div class="col-md-3"></div>
+    <div class="col-md-4">
+      <form
+        action="#"
+        class="rounded text-center bg-dark p-5"
+        (submit)="Add($event)"
+      >
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Student Name"
+          name="st_name"
+        />
+        <span class="text-danger">{{ nameError }}</span>
+
+        <br />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Age "
+          name="st_age"
+        />
+        <span class="text-danger">{{ ageError }}</span>
+        <br />
+
+        <input type="submit" class="btn btn-success mt-3" value="Add" />
+      </form>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (student of Students; track $index) {
+          <tr>
+            <th scope="row">{{ student.ID }}</th>
+            <td>{{ student.name }}</td>
+            <td>{{ student.age }}</td>
+            <td>
+              <button (click)="Delete(student.ID)" class="btn btn-warning">
+                Delete
+              </button>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
+
+<hr />
+<div class="container-fluid mb-5">
+  <div class="row justify-content-center align-items-center text-center g-2">
+    <h1>Branches</h1>
+  </div>
+
+  <div class="row justify-content-center align-items-center g-2">
+    <div class="col-md-3"></div>
+    <div class="col-md-4">
+      <select
+        (change)="UpdateDiv()"
+        [(ngModel)]="SelectedTrack"
+        class="form-select"
+        aria-label="Default select example"
+      >
+        <option value="pd">PD</option>
+        <option value="sw">SW</option>
+        <option value="graphic">Graphic</option>
+      </select>
+    </div>
+
+    <div class="col-md-3"></div>
+
+    <div class="row justify-content-center align-items-center g-2">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div class="rounded bg-dark text-white p-5">
+          <h1>Track Name : {{ TrackName }}</h1>
+          <h3>Locations :{{ TrackLocations }}</h3>
+        </div>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+  </div>
+</div>

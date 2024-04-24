@@ -1,0 +1,51 @@
+<div class="container-fluid mt-5">
+  <div class="row justify-content-center align-items-center text-center g-2">
+    <h1>{{ id == 0 ? "Add Product" : "Edit Product" }}</h1>
+  </div>
+  <div class="row justify-content-center align-items-center mt-5 mb-3 g-2">
+    <div class="col-md-3"></div>
+    <div class="col-md-4">
+      <form
+        action="#"
+        class="rounded text-center bg-dark p-5"
+        (submit)="ProductHandler()"
+        ngNativeValidate
+      >
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Product Name"
+          [(ngModel)]="Productname"
+          name="Productname"
+          required
+        />
+
+        <br />
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Price "
+          [(ngModel)]="price"
+          name="price"
+          required
+        />
+        <br />
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Quantity "
+          [(ngModel)]="quantity"
+          name="quantity"
+          min="1"
+          required
+        />
+        <br />
+
+        <button type="submit" class="btn btn-success mt-3">
+          {{ id == 0 ? "Add " : "Edit " }}
+        </button>
+      </form>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
